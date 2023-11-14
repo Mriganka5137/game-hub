@@ -8,7 +8,7 @@ function App() {
         <NavBar />
       </div>
       <div className="  max-lg:hidden">Aside</div>
-      <div className="  max-lg:col-span-2">
+      <div className="  max-lg:col-span-2 p-5">
         <GameGrid />
       </div>
     </div>
