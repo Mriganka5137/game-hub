@@ -3,6 +3,7 @@ import { Switch } from "@/components/ui/switch";
 import { Label } from "@/components/ui/label";
 import { useTheme } from "../theme/theme-provider";
 import { useState } from "react";
+import { Moon, Sun } from "lucide-react";
 
 const NavBar = () => {
   const { setTheme, theme } = useTheme();
@@ -11,8 +12,14 @@ const NavBar = () => {
   return (
     <nav className=" flex items-center justify-between px-5 py-3">
       <img src={logo} height={60} width={60} alt="logo" />
-      <div className=" flex items-center gap-1">
-        <Label htmlFor="airplane-mode">{isDark ? "Dark" : "Light"}</Label>
+      <div className=" flex items-center gap-2.5">
+        <Label htmlFor="airplane-mode">
+          {isDark ? (
+            <Moon className="h-[1.2rem] w-[1.2rem] transition-all" />
+          ) : (
+            <Sun className="h-[1.2rem] w-[1.2rem] transition-all" />
+          )}
+        </Label>
         <Switch
           id="airplane-mode"
           onClick={() => {

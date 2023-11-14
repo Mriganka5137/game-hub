@@ -1,3 +1,4 @@
+import GameGrid from "./components/shared/GameGrid";
 import NavBar from "./components/shared/NavBar";
 
 function App() {
@@ -7,7 +8,9 @@ function App() {
         <NavBar />
       </div>
       <div className="  max-lg:hidden">Aside</div>
-      <div className="  max-lg:col-span-2">Main</div>
+      <div className="  max-lg:col-span-2">
+        <GameGrid />
+      </div>
     </div>
   );
 }
