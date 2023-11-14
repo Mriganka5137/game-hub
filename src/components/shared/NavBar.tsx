@@ -1,5 +1,4 @@
 import logo from "../../assets/logo.webp";
-// import ModeToggle from "../theme/ModeToggle";
 import { Switch } from "@/components/ui/switch";
 import { Label } from "@/components/ui/label";
 import { useTheme } from "../theme/theme-provider";
@@ -12,7 +11,6 @@ const NavBar = () => {
   return (
     <nav className=" flex items-center justify-between px-5 py-3">
       <img src={logo} height={60} width={60} alt="logo" />
-      {/* <ModeToggle /> */}
       <div className=" flex items-center gap-1">
         <Label htmlFor="airplane-mode">{isDark ? "Dark" : "Light"}</Label>
         <Switch
