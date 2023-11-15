@@ -15,13 +15,14 @@ const NavBar = () => {
       <div className=" flex items-center gap-2.5">
         <Label htmlFor="airplane-mode">
           {isDark ? (
-            <Moon className="h-[1.2rem] w-[1.2rem] transition-all" />
+            <Moon className="h-[1.2rem] w-[1.2rem] transition-all stroke-sky-400" />
           ) : (
-            <Sun className="h-[1.2rem] w-[1.2rem] transition-all" />
+            <Sun className="h-[1.2rem] w-[1.2rem] transition-all stroke-yellow-400" />
           )}
         </Label>
         <Switch
           id="airplane-mode"
+          className=""
           onClick={() => {
             if (theme === "dark") {
               setTheme("light");
