@@ -3,13 +3,15 @@ import NavBar from "./components/shared/NavBar";
 
 function App() {
   return (
-    <div className="grid grid-cols-3 mx-auto max-w-7xl">
-      <div className="col-span-3">
+    <div className="p-5 mx-auto max-w-screen-2xl">
+      <div className="w-full ">
         <NavBar />
       </div>
-      <div className="col-span-1 max-lg:hidden">Aside</div>
-      <div className="col-span-2 p-5 max-lg:col-span-3">
-        <GameGrid />
+      <div className="flex gap-2 mt-2">
+        <div className="w-1/3 max-lg:hidden "></div>
+        <div className="flex flex-wrap ">
+          <GameGrid />
+        </div>
       </div>
     </div>
   );
