@@ -5,7 +5,9 @@ const GenreList = () => {
   return (
     <ul>
       {genres.map((genre) => (
-        <li key={genre.id}>{genre.name}</li>
+        <li className="text-xl font-poppins" key={genre.id}>
+          {genre.name}
+        </li>
       ))}
     </ul>
   );
