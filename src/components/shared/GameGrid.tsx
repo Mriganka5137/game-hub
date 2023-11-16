@@ -3,7 +3,7 @@ import GameCard from "./GameCard";
 import GameCardSkeleton from "./GameCardSkeleton";
 
 const GameGrid = () => {
-  const { games, error, loading } = useGame();
+  const { data, error, loading } = useGame();
   const skeletonArr = [1, 2, 3, 4, 5, 6];
   return (
     <>
@@ -17,7 +17,7 @@ const GameGrid = () => {
         <p>{error}</p>
       ) : (
         <div className="flex flex-wrap justify-center w-full mt-10 gap-9">
-          {games.map((game) => (
+          {data.map((game) => (
             <GameCard game={game} key={game.id} />
           ))}
         </div>
