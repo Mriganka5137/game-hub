@@ -4,15 +4,15 @@ import NavBar from "./components/shared/NavBar";
 
 function App() {
   return (
-    <div className="p-5 mx-auto border border-pink-100 max-w-screen-2xl">
+    <div className="p-5 mx-auto max-w-screen-[1800px]">
       <div className="w-full ">
         <NavBar />
       </div>
-      <div className="flex gap-2 mt-2">
-        <div className="w-1/4 border border-green-200 max-lg:hidden">
+      <div className="flex gap-2 ">
+        <div className="w-[400px]  max-lg:hidden bg-secondary pt-10 pl-5">
           <GenreList />
         </div>
-        <div className="flex flex-wrap w-3/4 max-lg:w-full">
+        <div className="w-full pt-10 bg-background">
           <GameGrid />
         </div>
       </div>

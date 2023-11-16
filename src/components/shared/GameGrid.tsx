@@ -4,7 +4,9 @@ import GameCardSkeleton from "./GameCardSkeleton";
 
 const GameGrid = () => {
   const { data, error, loading } = useGame();
-  const skeletonArr = [1, 2, 3, 4, 5, 6];
+  const skeletonArr = [
+    1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20,
+  ];
   return (
     <>
       {loading ? (
@@ -16,7 +18,7 @@ const GameGrid = () => {
       ) : error ? (
         <p>{error}</p>
       ) : (
-        <div className="flex flex-wrap justify-center w-full mt-10 gap-9">
+        <div className="flex flex-wrap justify-center gap-9 ">
           {data.map((game) => (
             <GameCard game={game} key={game.id} />
           ))}
