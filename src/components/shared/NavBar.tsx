@@ -10,7 +10,7 @@ const NavBar = () => {
   const [isDark, setIsDark] = useState(false);
 
   return (
-    <nav className="flex items-center justify-between px-5 py-3 shadow-sm ">
+    <nav className="flex items-center justify-between px-5 py-3 shadow-md bg-secondary/50 ">
       <img src={logo} height={60} width={60} alt="logo" />
       <div className=" flex items-center gap-2.5">
         <Label htmlFor="airplane-mode">

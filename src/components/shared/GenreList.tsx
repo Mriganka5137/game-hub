@@ -3,17 +3,21 @@ import getCroppedImageUrl from "@/utils/image-url";
 
 const GenreList = () => {
   const { data } = useGenres();
+
   return (
     <ul>
       {data.map((genre) => (
-        <li className="flex gap-5 mb-5 font-poppins" key={genre.id}>
+        <li
+          className="flex items-center gap-5 mb-5 cursor-pointer font-poppins"
+          key={genre.id}
+        >
           <img
             src={getCroppedImageUrl(genre.image_background)}
-            width={60}
-            height={60}
+            width={50}
+            height={50}
             className="rounded-lg "
           />
-          <span className="text-xl">{genre.name}</span>
+          <span className="text-xl  hover:underline">{genre.name}</span>
         </li>
       ))}
     </ul>
