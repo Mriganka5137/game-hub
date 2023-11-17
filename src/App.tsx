@@ -4,10 +4,13 @@ import GenreList from "./components/shared/GenreList";
 import NavBar from "./components/shared/NavBar";
 import { Genre } from "./hooks/useGenres";
 import PlatformList from "./components/shared/PlatformList";
+import { Platform } from "./hooks/useGames";
 
 function App() {
   const [selectedGenre, setSelectedGenre] = useState<Genre | null>(null);
-
+  const [selectedPlatform, setSelctedPlatform] = useState<Platform | null>(
+    null
+  );
   return (
     <div className="mx-auto max-w-screen-[1800px]">
       <div className="w-full ">
@@ -21,8 +24,13 @@ function App() {
           />
         </div>
         <div className="flex flex-col w-full gap-8 p-2 pt-10 bg-secondary/30">
-          <PlatformList />
-          <GameGrid selectedGenre={selectedGenre} />
+          <PlatformList
+            onSelectPlatform={(platform) => setSelctedPlatform(platform)}
+          />
+          <GameGrid
+            selectedGenre={selectedGenre}
+            selectedPlatform={selectedPlatform}
+          />
         </div>
       </div>
     </div>

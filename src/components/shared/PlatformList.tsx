@@ -5,12 +5,27 @@ import {
   SelectTrigger,
   SelectValue,
 } from "@/components/ui/select";
+import { Platform } from "@/hooks/useGames";
 import usePlatforms from "@/hooks/usePlatforms";
+import { useState } from "react";
 
-const PlatformList = () => {
-  const { data } = usePlatforms();
+interface Props {
+  onSelectPlatform: (platform: Platform) => void;
+}
+
+const PlatformList = ({ onSelectPlatform }: Props) => {
+  const { data, error } = usePlatforms();
+  const [value, setValue] = useState("");
+  const handleValue = (value: string) => {
+    setValue(value);
+    const platform = data?.find((platform) => platform.name === value);
+    if (platform) {
+      onSelectPlatform(platform);
+    }
+  };
+  if (error) return null;
   return (
-    <Select>
+    <Select value={value} onValueChange={handleValue}>
       <SelectTrigger className="w-[180px]">
         <SelectValue placeholder="Platforms" />
       </SelectTrigger>
