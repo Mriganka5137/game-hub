@@ -1,7 +1,12 @@
-import useGenres from "@/hooks/useGenres";
+import useGenres, { Genre } from "@/hooks/useGenres";
 import getCroppedImageUrl from "@/utils/image-url";
+import { Link } from "@chakra-ui/react";
 
-const GenreList = () => {
+interface Props {
+  onSelectedGenre: (genre: Genre) => void;
+}
+
+const GenreList = ({ onSelectedGenre }: Props) => {
   const { data } = useGenres();
 
   return (
@@ -17,9 +22,12 @@ const GenreList = () => {
             height={50}
             className="rounded-lg "
           />
-          <span className="text-xl hover:underline line-clamp-1">
+          <Link
+            className="text-xl hover:underline line-clamp-1"
+            onClick={() => onSelectedGenre(genre)}
+          >
             {genre.name}
-          </span>
+          </Link>
         </li>
       ))}
     </ul>
