@@ -14,7 +14,10 @@ function App() {
       </div>
       <div className="flex ">
         <div className="w-[350px]  max-lg:hidden bg-secondary/40 pt-10 pl-5  shadow-lg">
-          <GenreList onSelectedGenre={(genre) => setSelectedGenre(genre)} />
+          <GenreList
+            selectedGenre={selectedGenre}
+            onSelectedGenre={(genre) => setSelectedGenre(genre)}
+          />
         </div>
         <div className="w-full p-2 pt-10 bg-secondary/30">
           <GameGrid selectedGenre={selectedGenre} />
