@@ -1,39 +1,15 @@
 import logo from "../../assets/logo.webp";
-import { Switch } from "@/components/ui/switch";
-import { Label } from "@/components/ui/label";
-import { useTheme } from "../theme/theme-provider";
-import { useState } from "react";
-import { Moon, Sun } from "lucide-react";
+import ModeToggle from "../theme/ModeToggle";
 
 const NavBar = () => {
-  const { setTheme, theme } = useTheme();
-  const [isDark, setIsDark] = useState(false);
+  // const { setTheme, theme } = useTheme();
+  // const [isDark, setIsDark] = useState(false);
 
   return (
     <nav className="flex items-center justify-between px-5 py-3 shadow-md bg-secondary/50 ">
       <img src={logo} height={60} width={60} alt="logo" />
-      <div className=" flex items-center gap-2.5">
-        <Label htmlFor="dark-mode">
-          {isDark ? (
-            <Moon className="h-[1.2rem] w-[1.2rem] transition-all stroke-sky-400" />
-          ) : (
-            <Sun className="h-[1.2rem] w-[1.2rem] transition-all stroke-yellow-400" />
-          )}
-        </Label>
-        <Switch
-          id="dark-mode"
-          className=""
-          onClick={() => {
-            if (theme === "dark") {
-              setTheme("light");
-              setIsDark(false);
-            } else {
-              setTheme("dark");
-              setIsDark(true);
-            }
-          }}
-        />
-      </div>
+
+      <ModeToggle />
     </nav>
   );
 };

@@ -12,7 +12,7 @@ const CriticScore = ({ score }: Props) => {
           : "bg-yellow-100 text-yellow-600"
       }  rounded-sm `}
     >
-      {score}
+      {score ? score : "50"}
     </Badge>
   );
 };

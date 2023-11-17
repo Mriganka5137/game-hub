@@ -9,23 +9,27 @@ import {
 
 const sortingOptions = [
   { name: "Relevance", value: "relevance" },
-  { name: "Release Date", value: "release-date" },
-  { name: "Popularity", value: "popularity" },
-  { name: "Rating", value: "rating" },
+  { name: "Date added", value: "-added" },
+  { name: "Popularity", value: "-metacritic" },
+  { name: "Rating", value: "-rating" },
   { name: "Name", value: "name" },
+  { name: "Released", value: "-released" },
 ];
 
-const SortSelctor = () => {
+interface Props {
+  onSelectSort: (sort: string) => void;
+}
+
+const SortSelctor = ({ onSelectSort }: Props) => {
   const [value, setValue] = useState("");
-  //   const handleValue = (value: string) => {
-  //     setValue(value);
-  //     const platform = data?.find((platform) => platform.name === value);
-  //     if (platform) {
-  //       onSelectPlatform(platform);
-  //     }
-  //   };
+
+  const handleValue = (value: string) => {
+    setValue(value);
+    if (value === "relevance") return;
+    onSelectSort(value);
+  };
   return (
-    <Select value={value} onValueChange={setValue}>
+    <Select value={value} onValueChange={handleValue}>
       <SelectTrigger className="w-[180px]">
         <SelectValue placeholder="Sort" />
       </SelectTrigger>
