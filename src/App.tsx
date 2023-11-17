@@ -3,6 +3,7 @@ import GameGrid from "./components/shared/GameGrid";
 import GenreList from "./components/shared/GenreList";
 import NavBar from "./components/shared/NavBar";
 import { Genre } from "./hooks/useGenres";
+import PlatformList from "./components/shared/PlatformList";
 
 function App() {
   const [selectedGenre, setSelectedGenre] = useState<Genre | null>(null);
@@ -19,7 +20,8 @@ function App() {
             onSelectedGenre={(genre) => setSelectedGenre(genre)}
           />
         </div>
-        <div className="w-full p-2 pt-10 bg-secondary/30">
+        <div className="flex flex-col w-full gap-8 p-2 pt-10 bg-secondary/30">
+          <PlatformList />
           <GameGrid selectedGenre={selectedGenre} />
         </div>
       </div>

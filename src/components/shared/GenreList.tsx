@@ -17,7 +17,7 @@ const GenreList = ({ onSelectedGenre, selectedGenre }: Props) => {
         <li
           className={cn(
             "flex items-center gap-5 mb-5 cursor-pointer font-poppins p-1",
-            selectedGenre?.id === genre.id && "bg-secondary/30"
+            selectedGenre?.id === genre.id && "bg-secondary/60"
           )}
           key={genre.id}
         >
