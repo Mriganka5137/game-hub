@@ -17,7 +17,9 @@ const GenreList = () => {
             height={50}
             className="rounded-lg "
           />
-          <span className="text-xl  hover:underline">{genre.name}</span>
+          <span className="text-xl hover:underline line-clamp-1">
+            {genre.name}
+          </span>
         </li>
       ))}
     </ul>

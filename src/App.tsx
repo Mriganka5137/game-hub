@@ -9,10 +9,10 @@ function App() {
         <NavBar />
       </div>
       <div className="flex ">
-        <div className="w-[400px]  max-lg:hidden bg-secondary/40 pt-10 pl-5">
+        <div className="w-[350px]  max-lg:hidden bg-secondary/40 pt-10 pl-5  shadow-lg">
           <GenreList />
         </div>
-        <div className="w-full pt-10 bg-secondary/30">
+        <div className="w-full p-2 pt-10 bg-secondary/30">
           <GameGrid />
         </div>
       </div>
