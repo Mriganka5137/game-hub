@@ -15,7 +15,7 @@ const GameGrid = ({ gameQuery }: Props) => {
   return (
     <>
       {loading ? (
-        <div className="flex flex-wrap justify-start px-5 gap-9">
+        <div className="flex flex-wrap justify-center px-5 gap-9">
           {skeletonArr.map((i) => (
             <GameCardSkeleton key={i} />
           ))}
@@ -23,7 +23,7 @@ const GameGrid = ({ gameQuery }: Props) => {
       ) : error ? (
         <p>{error}</p>
       ) : (
-        <div className="flex flex-wrap justify-start px-5 gap-9">
+        <div className="flex flex-wrap justify-center px-5 gap-9">
           {data.map((game) => (
             <GameCard game={game} key={game.id} />
           ))}
