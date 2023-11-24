@@ -4,7 +4,7 @@ import getCroppedImageUrl from "@/utils/image-url";
 import { Link } from "@chakra-ui/react";
 
 interface Props {
-  onSelectedGenre: (genre: Genre) => void;
+  onSelectedGenre: (genre: Genre | null) => void;
   selectedGenre: Genre | null;
 }
 
@@ -32,7 +32,12 @@ const GenreList = ({ onSelectedGenre, selectedGenre }: Props) => {
               "text-xl hover:underline line-clamp-1 hover:text-purple-400",
               selectedGenre?.id === genre.id && "text-purple-500"
             )}
-            onClick={() => onSelectedGenre(genre)}
+            onClick={() => {
+              if (selectedGenre?.id === genre.id) {
+                return onSelectedGenre(null);
+              }
+              onSelectedGenre(genre);
+            }}
           >
             {genre.name}
           </Link>
