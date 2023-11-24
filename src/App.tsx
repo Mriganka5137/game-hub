@@ -11,6 +11,7 @@ export interface GameQuery {
   genre: Genre | null;
   platform: Platform | null;
   sortOptions: string | null;
+  searchText: string;
 }
 
 function App() {
@@ -19,7 +20,11 @@ function App() {
   return (
     <div className="">
       <div className="w-full mx-auto max-w-screen-[1800px]">
-        <NavBar />
+        <NavBar
+          onSearch={(searchText) => {
+            setGameQuery({ ...gameQuery, searchText });
+          }}
+        />
       </div>
       <div className="flex ">
         <div className="w-[350px]  max-lg:hidden bg-secondary/40 pt-10 pl-5  shadow-lg ">

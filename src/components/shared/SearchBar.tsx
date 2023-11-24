@@ -1,7 +1,11 @@
 import { useRef } from "react";
 import { Input } from "../ui/input";
 
-const SearchBar = () => {
+interface Props {
+  onSearch: (searchText: string) => void;
+}
+
+const SearchBar = ({ onSearch }: Props) => {
   const inputRef = useRef<HTMLInputElement>(null);
 
   return (
@@ -10,7 +14,7 @@ const SearchBar = () => {
       onSubmit={(event) => {
         event.preventDefault();
         if (inputRef.current) {
-          console.log(inputRef.current.value);
+          onSearch(inputRef.current.value);
         }
       }}
     >
