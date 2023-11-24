@@ -8,6 +8,7 @@ import {
   TooltipProvider,
   TooltipTrigger,
 } from "@/components/ui/tooltip";
+import Emoji from "./Emoji";
 
 interface Props {
   game: Game;
@@ -26,11 +27,14 @@ const GameCard = ({ game }: Props) => {
             platforms={game.parent_platforms.map((p) => p.platform)}
           />
         </div>
-        <CriticScore score={game.metacritic} />
+        <div className="flex gap-3">
+          <Emoji rating={game.rating_top} />
+          <CriticScore score={game.metacritic} />
+        </div>
       </div>
       <TooltipProvider>
         <Tooltip>
-          <TooltipTrigger className="px-5 ">
+          <TooltipTrigger className="">
             <h2 className="text-xl font-semibold dark:text-slate-200 text-slate-700 line-clamp-1">
               {game.name}
             </h2>
