@@ -16,20 +16,14 @@ const GenreList = ({ onSelectedGenre, selectedGenre }: Props) => {
       {data.map((genre) => (
         <li
           className={cn(
-            "flex items-center gap-5 mb-5 cursor-pointer font-poppins p-1",
+            " mb-5 cursor-pointer font-poppins p-1 hover:bg-secondary/30",
             selectedGenre?.id === genre.id && "bg-secondary/60"
           )}
           key={genre.id}
         >
-          <img
-            src={getCroppedImageUrl(genre.image_background)}
-            width={50}
-            height={50}
-            className="rounded-lg "
-          />
           <Link
             className={cn(
-              "text-xl hover:underline line-clamp-1 hover:text-purple-400",
+              "text-xl hover:underline line-clamp-1 hover:text-purple-400 flex items-center gap-5",
               selectedGenre?.id === genre.id && "text-purple-500"
             )}
             onClick={() => {
@@ -39,6 +33,12 @@ const GenreList = ({ onSelectedGenre, selectedGenre }: Props) => {
               onSelectedGenre(genre);
             }}
           >
+            <img
+              src={getCroppedImageUrl(genre.image_background)}
+              width={50}
+              height={50}
+              className="rounded-lg "
+            />
             {genre.name}
           </Link>
         </li>

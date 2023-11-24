@@ -21,7 +21,7 @@ const SearchBar = ({ onSearch }: Props) => {
       <Input
         type="search"
         placeholder="Search..."
-        className="max-w-screen-lg mx-auto rounded-full bg-secondary/30"
+        className="max-w-screen-lg mx-auto border rounded-full bg-secondary/30"
         ref={inputRef}
       />
     </form>
