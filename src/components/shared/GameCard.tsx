@@ -2,6 +2,12 @@ import { Game } from "@/hooks/useGames";
 import PlatformIconList from "./PlatformIconList";
 import CriticScore from "./CriticScore";
 import getCroppedImageUrl from "@/utils/image-url";
+import {
+  Tooltip,
+  TooltipContent,
+  TooltipProvider,
+  TooltipTrigger,
+} from "@/components/ui/tooltip";
 
 interface Props {
   game: Game;
@@ -22,9 +28,18 @@ const GameCard = ({ game }: Props) => {
         </div>
         <CriticScore score={game.metacritic} />
       </div>
-      <h2 className="px-5 text-2xl font-semibold dark:text-slate-200 text-slate-700 line-clamp-1">
-        {game.name}
-      </h2>
+      <TooltipProvider>
+        <Tooltip>
+          <TooltipTrigger className="px-5 ">
+            <h2 className="text-xl font-semibold dark:text-slate-200 text-slate-700 line-clamp-1">
+              {game.name}
+            </h2>
+          </TooltipTrigger>
+          <TooltipContent>
+            <p>{game.name}</p>
+          </TooltipContent>
+        </Tooltip>
+      </TooltipProvider>
     </div>
   );
 };
