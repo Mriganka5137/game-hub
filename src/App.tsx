@@ -28,7 +28,8 @@ function App() {
         />
       </div>
       <div className="flex ">
-        <div className="w-[350px]  max-lg:hidden bg-secondary/40 pt-10 pl-5  shadow-lg ">
+        <div className="w-[350px]  max-lg:hidden bg-secondary/40 pt-10 pl-5  shadow-lg  ">
+          <h1 className="p-1 mb-3 text-2xl font-semibold">Genres</h1>
           <GenreList
             selectedGenre={gameQuery.genre}
             onSelectedGenre={(genre) => setGameQuery({ ...gameQuery, genre })}
