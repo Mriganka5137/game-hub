@@ -18,7 +18,8 @@ const PlatformList = ({ onSelectPlatform }: Props) => {
   const [value, setValue] = useState("");
   const handleValue = (value: string) => {
     setValue(value);
-    const platform = data?.find((platform) => platform.name === value);
+
+    const platform = data?.results.find((platform) => platform.name === value);
     if (platform) {
       onSelectPlatform(platform);
     }
@@ -30,7 +31,7 @@ const PlatformList = ({ onSelectPlatform }: Props) => {
         <SelectValue placeholder="Platforms" />
       </SelectTrigger>
       <SelectContent>
-        {data?.map((platform) => (
+        {data?.results.map((platform) => (
           <SelectItem value={platform.name} key={platform.id}>
             {platform.name}
           </SelectItem>
