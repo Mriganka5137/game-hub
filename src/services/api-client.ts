@@ -5,3 +5,17 @@ export default axios.create({
     key: "08faf244b042471cbcf6bc6dcbb907af",
   },
 });
+
+// class APIClient<T> {
+//   endpoint: string;
+//   constructor(endpoint: string) {
+//     this.endpoint = endpoint;
+//   }
+
+//   getAll = async () => {
+//     const res = await apiInstance.get<T[]>(this.endpoint);
+//     return res.data;
+//   };
+// }
+
+// export default APIClient;

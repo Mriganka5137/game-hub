@@ -10,10 +10,10 @@ interface Props {
 
 const GenreList = ({ onSelectedGenre, selectedGenre }: Props) => {
   const { data } = useGenres();
-
+  console.log(data);
   return (
     <ul>
-      {data.map((genre) => (
+      {data?.results.map((genre) => (
         <li
           className={cn(
             " mb-5 cursor-pointer font-poppins p-1 hover:bg-secondary/30",
