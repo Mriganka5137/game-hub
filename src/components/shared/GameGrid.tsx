@@ -8,7 +8,7 @@ interface Props {
 }
 
 const GameGrid = ({ gameQuery }: Props) => {
-  const { data, error, loading } = useGames(gameQuery);
+  const { data, error, isLoading: loading } = useGames(gameQuery);
   const skeletonArr = [
     1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20,
   ];
@@ -21,10 +21,10 @@ const GameGrid = ({ gameQuery }: Props) => {
           ))}
         </div>
       ) : error ? (
-        <p>{error}</p>
+        <p>{error.message}</p>
       ) : (
         <div className="flex flex-wrap justify-center px-5 gap-9">
-          {data.map((game) => (
+          {data?.results.map((game) => (
             <GameCard game={game} key={game.id} />
           ))}
         </div>
