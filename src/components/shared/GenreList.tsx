@@ -10,7 +10,6 @@ interface Props {
 
 const GenreList = ({ onSelectedGenre, selectedGenre }: Props) => {
   const { data } = useGenres();
-  console.log(data);
   return (
     <ul>
       {data?.results.map((genre) => (
