@@ -4,10 +4,10 @@ import GenreList from "./components/shared/GenreList";
 import NavBar from "./components/shared/NavBar";
 import PlatformList from "./components/shared/PlatformList";
 import SortSelector from "./components/shared/SortSelector";
-import { Platform } from "./hooks/useGames";
 import { Genre } from "./hooks/useGenres";
 import GameHeading from "./components/shared/GameHeading";
 import MenuSheet from "./components/shared/MenuSheet";
+import { Platform } from "./services/api-client";
 
 export interface GameQuery {
   genre: Genre | null;
@@ -38,7 +38,7 @@ function App() {
           />
         </div>
 
-        <div className="flex flex-col w-full gap-8 pt-10 mx-auto bg-secondary/30 max-w-7xl">
+        <div className="flex flex-col w-full gap-8 py-10 mx-auto bg-secondary/30 max-w-7xl ">
           <GameHeading gameQuery={gameQuery} />
           <div className="flex w-full gap-5 px-5">
             <PlatformList
