@@ -5,8 +5,8 @@ import {
   SelectTrigger,
   SelectValue,
 } from "@/components/ui/select";
-import { Platform } from "@/hooks/useGames";
 import usePlatforms from "@/hooks/usePlatforms";
+import { Platform } from "@/services/api-client";
 import { useState } from "react";
 
 interface Props {
