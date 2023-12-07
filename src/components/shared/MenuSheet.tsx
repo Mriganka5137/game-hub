@@ -26,7 +26,7 @@ const MenuSheet = ({ gameQuery, setGameQuery }: Props) => {
           />
         </svg>
       </SheetTrigger>
-      <SheetContent>
+      <SheetContent className="overflow-y-auto ">
         <div className="flex items-center gap-2 mb-3">
           <img src={logo} height={60} width={60} alt="logo" className="" />
           <h1 className="p-1 mb-3 text-2xl font-semibold">Genres</h1>
