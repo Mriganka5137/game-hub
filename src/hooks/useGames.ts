@@ -1,5 +1,5 @@
 import { GameQuery } from "@/App";
-import { useInfiniteQuery } from "@tanstack/react-query";
+import { keepPreviousData, useInfiniteQuery } from "@tanstack/react-query";
 import APIClient, { FetchResponse, Platform } from "@/services/api-client";
 
 const apiClient = new APIClient<Game>("/games");
@@ -26,6 +26,7 @@ const useGames = (gameQuery: GameQuery) =>
           page: pageParam,
         },
       }),
+    placeholderData: keepPreviousData,
     getNextPageParam: (lastPage, allPages) => {
       return lastPage.next ? allPages.length + 1 : undefined;
     },
