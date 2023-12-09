@@ -7,32 +7,40 @@ import {
 } from "@/components/ui/select";
 import usePlatforms from "@/hooks/usePlatforms";
 import { Platform } from "@/services/api-client";
-import { useState } from "react";
 
 interface Props {
   onSelectPlatform: (platform: Platform) => void;
+  selectedPlatformId?: number;
 }
 
-const PlatformList = ({ onSelectPlatform }: Props) => {
+const PlatformList = ({ onSelectPlatform, selectedPlatformId }: Props) => {
   const { data, error } = usePlatforms();
-  const [value, setValue] = useState("");
-  const handleValue = (value: string) => {
-    setValue(value);
 
-    const platform = data?.results.find((platform) => platform.name === value);
-    if (platform) {
-      onSelectPlatform(platform);
-    }
+  const selectedPlatform = data?.results.find(
+    (platform) => platform.id === selectedPlatformId
+  );
+
+  const handlePlatformChange = (value: string) => {
+    const selectedValue = data?.results.find((p) => p.name === value);
+    onSelectPlatform(selectedValue!);
   };
+
   if (error) return null;
   return (
-    <Select value={value} onValueChange={handleValue}>
+    <Select
+      defaultValue={selectedPlatform?.name}
+      onValueChange={handlePlatformChange}
+    >
       <SelectTrigger className="w-[180px]">
-        <SelectValue placeholder="Platforms" />
+        <SelectValue placeholder={selectedPlatform?.name || "Platforms"} />
       </SelectTrigger>
       <SelectContent>
         {data?.results.map((platform) => (
-          <SelectItem value={platform.name} key={platform.id}>
+          <SelectItem
+            value={platform.name}
+            key={platform.id}
+            onClick={() => onSelectPlatform(platform)}
+          >
             {platform.name}
           </SelectItem>
         ))}

@@ -32,8 +32,10 @@ const MenuSheet = ({ gameQuery, setGameQuery }: Props) => {
           <h1 className="p-1 mb-3 text-2xl font-semibold">Genres</h1>
         </div>
         <GenreList
-          selectedGenre={gameQuery.genre}
-          onSelectedGenre={(genre) => setGameQuery({ ...gameQuery, genre })}
+          selectedGenreId={gameQuery.genreId}
+          onSelectedGenre={(genre) =>
+            setGameQuery({ ...gameQuery, genreId: genre?.id })
+          }
         />
       </SheetContent>
     </Sheet>
