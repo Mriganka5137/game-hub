@@ -4,14 +4,12 @@ import GenreList from "./components/shared/GenreList";
 import NavBar from "./components/shared/NavBar";
 import PlatformList from "./components/shared/PlatformList";
 import SortSelector from "./components/shared/SortSelector";
-import { Genre } from "./hooks/useGenres";
 import GameHeading from "./components/shared/GameHeading";
 import MenuSheet from "./components/shared/MenuSheet";
-import { Platform } from "./services/api-client";
 
 export interface GameQuery {
-  genre: Genre | null;
-  platform: Platform | null;
+  genreId?: number;
+  platformId?: number;
   sortOptions: string | null;
   searchText: string;
 }
@@ -19,6 +17,7 @@ export interface GameQuery {
 function App() {
   const [gameQuery, setGameQuery] = useState<GameQuery>({} as GameQuery);
 
+  console.log(gameQuery);
   return (
     <div className="">
       <div className=" flex w-full mx-auto max-w-screen-[1800px] shadow-md bg-secondary/50 p-2">
@@ -33,8 +32,10 @@ function App() {
         <div className="w-[350px] max-lg:hidden pt-10 pl-5  shadow-lg bg-secondary/40">
           <h1 className="p-1 mb-3 text-2xl font-semibold">Genres</h1>
           <GenreList
-            selectedGenre={gameQuery.genre}
-            onSelectedGenre={(genre) => setGameQuery({ ...gameQuery, genre })}
+            selectedGenreId={gameQuery.genreId}
+            onSelectedGenre={(genre) =>
+              setGameQuery({ ...gameQuery, genreId: genre?.id })
+            }
           />
         </div>
 
@@ -43,8 +44,9 @@ function App() {
           <div className="flex w-full gap-5 px-5">
             <PlatformList
               onSelectPlatform={(platform) =>
-                setGameQuery({ ...gameQuery, platform })
+                setGameQuery({ ...gameQuery, platformId: platform.id })
               }
+              selectedPlatformId={gameQuery.platformId}
             />
             <SortSelector
               onSelectSort={(value) =>
