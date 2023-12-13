@@ -3,10 +3,7 @@ import ModeToggle from "../theme/ModeToggle";
 
 import SearchBar from "./SearchBar";
 
-interface Props {
-  onSearch: (searchText: string) => void;
-}
-const NavBar = ({ onSearch }: Props) => {
+const NavBar = () => {
   return (
     <nav className="flex items-center justify-between flex-1 gap-3 px-2 py-2 ">
       <img
@@ -16,7 +13,7 @@ const NavBar = ({ onSearch }: Props) => {
         alt="logo"
         className=" max-lg:hidden"
       />
-      <SearchBar onSearch={onSearch} />
+      <SearchBar />
       <ModeToggle />
     </nav>
   );
