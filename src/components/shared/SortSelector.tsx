@@ -6,6 +6,7 @@ import {
   SelectTrigger,
   SelectValue,
 } from "../ui/select";
+import useGameQueryStore from "@/store";
 
 const sortingOptions = [
   { name: "Relevance", value: "relevance" },
@@ -16,17 +17,14 @@ const sortingOptions = [
   { name: "Released", value: "-released" },
 ];
 
-interface Props {
-  onSelectSort: (sort: string) => void;
-}
-
-const SortSelctor = ({ onSelectSort }: Props) => {
+const SortSelctor = () => {
   const [value, setValue] = useState("");
+  const handleSort = useGameQueryStore((s) => s.handleSort);
 
   const handleValue = (value: string) => {
     setValue(value);
     if (value === "relevance") return;
-    onSelectSort(value);
+    handleSort(value);
   };
   return (
     <Select value={value} onValueChange={handleValue}>

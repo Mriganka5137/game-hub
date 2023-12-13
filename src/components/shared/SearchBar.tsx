@@ -1,11 +1,9 @@
 import { useRef } from "react";
 import { Input } from "../ui/input";
+import useGameQueryStore from "@/store";
 
-interface Props {
-  onSearch: (searchText: string) => void;
-}
-
-const SearchBar = ({ onSearch }: Props) => {
+const SearchBar = () => {
+  const handleSearch = useGameQueryStore((s) => s.handleSearch);
   const inputRef = useRef<HTMLInputElement>(null);
 
   return (
@@ -14,7 +12,7 @@ const SearchBar = ({ onSearch }: Props) => {
       onSubmit={(event) => {
         event.preventDefault();
         if (inputRef.current) {
-          onSearch(inputRef.current.value);
+          handleSearch(inputRef.current.value);
         }
       }}
     >

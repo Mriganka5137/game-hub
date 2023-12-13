@@ -7,21 +7,21 @@ import {
 } from "@/components/ui/select";
 import usePlatform from "@/hooks/usePlatform";
 import usePlatforms from "@/hooks/usePlatforms";
-import { Platform } from "@/services/api-client";
+import useGameQueryStore from "@/store";
 
-interface Props {
-  onSelectPlatform: (platform: Platform) => void;
-  selectedPlatformId?: number;
-}
-
-const PlatformList = ({ onSelectPlatform, selectedPlatformId }: Props) => {
+const PlatformList = () => {
   const { data, error } = usePlatforms();
 
+  const selectedPlatformId = useGameQueryStore((s) => s.gameQuery.platformId);
   const selectedPlatform = usePlatform(selectedPlatformId);
+
+  const handleSelectedPlatform = useGameQueryStore(
+    (s) => s.handleSelectedPlatform
+  );
 
   const handlePlatformChange = (value: string) => {
     const selectedValue = data?.results.find((p) => p.name === value);
-    onSelectPlatform(selectedValue!);
+    handleSelectedPlatform(selectedValue!);
   };
 
   if (error) return null;
@@ -38,7 +38,7 @@ const PlatformList = ({ onSelectPlatform, selectedPlatformId }: Props) => {
           <SelectItem
             value={platform.name}
             key={platform.id}
-            onClick={() => onSelectPlatform(platform)}
+            onClick={() => handleSelectedPlatform(platform)}
           >
             {platform.name}
           </SelectItem>

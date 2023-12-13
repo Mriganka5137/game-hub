@@ -1,13 +1,7 @@
-import { GameQuery } from "@/App";
+import logo from "../../assets/logo.webp";
 import { Sheet, SheetContent, SheetTrigger } from "../ui/sheet";
 import GenreList from "./GenreList";
-import logo from "../../assets/logo.webp";
-
-interface Props {
-  gameQuery: GameQuery;
-  setGameQuery: (gameQuery: GameQuery) => void;
-}
-const MenuSheet = ({ gameQuery, setGameQuery }: Props) => {
+const MenuSheet = () => {
   return (
     <Sheet>
       <SheetTrigger className=" lg:hidden">
@@ -31,12 +25,7 @@ const MenuSheet = ({ gameQuery, setGameQuery }: Props) => {
           <img src={logo} height={60} width={60} alt="logo" className="" />
           <h1 className="p-1 mb-3 text-2xl font-semibold">Genres</h1>
         </div>
-        <GenreList
-          selectedGenreId={gameQuery.genreId}
-          onSelectedGenre={(genre) =>
-            setGameQuery({ ...gameQuery, genreId: genre?.id })
-          }
-        />
+        <GenreList />
       </SheetContent>
     </Sheet>
   );

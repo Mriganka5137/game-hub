@@ -1,16 +1,15 @@
-import useGenres, { Genre } from "@/hooks/useGenres";
+import useGenres from "@/hooks/useGenres";
 import { cn } from "@/lib/utils";
+import useGameQueryStore from "@/store";
 import getCroppedImageUrl from "@/utils/image-url";
 import { Link } from "@chakra-ui/react";
 
-interface Props {
-  onSelectedGenre: (genre: Genre | null) => void;
-  selectedGenreId?: number;
-}
-
-const GenreList = ({ onSelectedGenre, selectedGenreId }: Props) => {
+const GenreList = () => {
   const { data } = useGenres();
   // console.log(data);
+  const selectedGenreId = useGameQueryStore((s) => s.gameQuery.genreId);
+  const handleSelctedGenre = useGameQueryStore((s) => s.handleSelctedGenre);
+
   return (
     <ul>
       {data?.results.map((genre) => (
@@ -28,9 +27,9 @@ const GenreList = ({ onSelectedGenre, selectedGenreId }: Props) => {
             )}
             onClick={() => {
               if (selectedGenreId === genre.id) {
-                return onSelectedGenre(null);
+                return handleSelctedGenre(null);
               }
-              onSelectedGenre(genre);
+              handleSelctedGenre(genre);
             }}
           >
             <img
