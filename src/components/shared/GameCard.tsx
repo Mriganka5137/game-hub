@@ -9,6 +9,7 @@ import {
   TooltipTrigger,
 } from "@/components/ui/tooltip";
 import Emoji from "./Emoji";
+import { Link } from "react-router-dom";
 
 interface Props {
   game: Game;
@@ -36,7 +37,7 @@ const GameCard = ({ game }: Props) => {
         <Tooltip>
           <TooltipTrigger className="">
             <h2 className="text-xl font-semibold dark:text-slate-200 text-slate-700 line-clamp-1">
-              {game.name}
+              <Link to={`/games/${game.slug}`}>{game.name}</Link>
             </h2>
           </TooltipTrigger>
           <TooltipContent>
