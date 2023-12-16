@@ -17,7 +17,7 @@ interface Props {
 const GameCard = ({ game }: Props) => {
   return (
     <div
-      className="flex flex-col justify-start w-full gap-4 pb-8 overflow-hidden duration-500  rounded-lg shadow cursor-pointer dark:bg-gray-900 hover:scale-105 hover:-translate-y-2 hover:shadow-md dark:shadow-sky-400 dark:hover:drop-shadow-md 
+      className="flex flex-col justify-start w-full gap-4 pb-8 overflow-hidden duration-500  rounded-lg shadow  dark:bg-gray-900 hover:scale-105 hover:-translate-y-2 hover:shadow-md dark:shadow-sky-400 dark:hover:drop-shadow-md 
     sm:w-[280px] font-poppins "
     >
       <img src={getCroppedImageUrl(game.background_image)} className="" />
