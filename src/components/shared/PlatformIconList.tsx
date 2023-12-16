@@ -11,7 +11,7 @@ import { MdPhoneIphone } from "react-icons/md";
 import { SiNintendo } from "react-icons/si";
 import { BsGlobe } from "react-icons/bs";
 import { Icon } from "@chakra-ui/react";
-import { Platform } from "@/services/api-client";
+import { Platform } from "@/entities/Platform";
 interface Props {
   platforms: Platform[];
 }

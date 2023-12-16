@@ -1,6 +1,6 @@
 import { create } from "zustand";
-import { Genre } from "./hooks/useGenres";
-import { Platform } from "./services/api-client";
+import { Genre } from "./entities/Genre";
+import { Platform } from "./entities/Platform";
 
 export interface GameQuery {
   genreId?: number;
