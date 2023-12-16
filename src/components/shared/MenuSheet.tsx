@@ -1,3 +1,4 @@
+import { Link } from "react-router-dom";
 import logo from "../../assets/logo.webp";
 import { Sheet, SheetContent, SheetTrigger } from "../ui/sheet";
 import GenreList from "./GenreList";
@@ -22,7 +23,9 @@ const MenuSheet = () => {
       </SheetTrigger>
       <SheetContent className="overflow-y-auto ">
         <div className="flex items-center gap-2 mb-3">
-          <img src={logo} height={60} width={60} alt="logo" className="" />
+          <Link to="/">
+            <img src={logo} height={60} width={60} alt="logo" className="" />
+          </Link>
           <h1 className="p-1 mb-3 text-2xl font-semibold">Genres</h1>
         </div>
         <GenreList />

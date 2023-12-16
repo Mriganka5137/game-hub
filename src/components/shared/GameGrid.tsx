@@ -34,9 +34,9 @@ const GameGrid = () => {
           dataLength={gamesCount}
           next={() => fetchNextPage()}
           hasMore={!!hasNextPage}
-          loader={<Spinner />}
+          loader={<Spinner width={25} height={25} />}
         >
-          <div className="flex flex-wrap justify-center px-5 gap-9">
+          <div className="flex flex-wrap justify-around px-5 py-5 gap-9">
             {data?.pages.map((page, index) => (
               <React.Fragment key={index}>
                 {page.results.map((game) => (
