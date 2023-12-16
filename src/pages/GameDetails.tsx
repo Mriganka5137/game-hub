@@ -1,5 +1,6 @@
 import ExpandableText from "@/components/shared/ExpandableText";
 import GameAttributes from "@/components/shared/GameAttributes";
+import GameTrailer from "@/components/shared/GameTrailer";
 import useGame from "@/hooks/useGame";
 import { Spinner } from "@chakra-ui/react";
 import { useParams } from "react-router-dom";
@@ -16,6 +17,7 @@ const GameDetails = () => {
         <h1 className="mb-3 text-4xl font-medium">{game.name}</h1>
         <ExpandableText>{game.description_raw}</ExpandableText>
         <GameAttributes game={game} />
+        <GameTrailer gameId={game.id} />
       </div>
     </div>
   );
