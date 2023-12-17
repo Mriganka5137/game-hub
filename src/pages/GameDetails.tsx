@@ -1,5 +1,6 @@
 import ExpandableText from "@/components/shared/ExpandableText";
 import GameAttributes from "@/components/shared/GameAttributes";
+import GameScreenshots from "@/components/shared/GameScreenshots";
 import GameTrailer from "@/components/shared/GameTrailer";
 import useGame from "@/hooks/useGame";
 import { Spinner } from "@chakra-ui/react";
@@ -18,6 +19,7 @@ const GameDetails = () => {
         <ExpandableText>{game.description_raw}</ExpandableText>
         <GameAttributes game={game} />
         <GameTrailer gameId={game.id} />
+        <GameScreenshots gameId={game.id} />
       </div>
     </div>
   );
