@@ -14,12 +14,16 @@ const GameDetails = () => {
 
   return (
     <div className=" bg-secondary/30">
-      <div className="w-screen min-h-screen p-10 mx-auto max-w-7xl max-md:p-5">
-        <h1 className="mb-3 text-4xl font-medium">{game.name}</h1>
-        <ExpandableText>{game.description_raw}</ExpandableText>
-        <GameAttributes game={game} />
-        <GameTrailer gameId={game.id} />
-        <GameScreenshots gameId={game.id} />
+      <div className="flex w-screen min-h-screen gap-5 p-10 mx-auto max-w-7xl max-md:p-5 max-md:flex-col">
+        <div className="w-1/2 max-md:w-full">
+          <h1 className="mb-3 text-4xl font-medium">{game.name}</h1>
+          <ExpandableText>{game.description_raw}</ExpandableText>
+          <GameAttributes game={game} />
+        </div>
+        <div className="w-1/2 max-md:w-full">
+          <GameTrailer gameId={game.id} />
+          <GameScreenshots gameId={game.id} />
+        </div>
       </div>
     </div>
   );
