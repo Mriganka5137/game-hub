@@ -26,7 +26,7 @@ const GameAttributes = ({ game }: Props) => {
 
       <DefinitionItem term="Publishers">
         {game.publishers.map((p) => (
-          <p>{p.name}</p>
+          <p key={p.id}>{p.name}</p>
         ))}
       </DefinitionItem>
     </div>

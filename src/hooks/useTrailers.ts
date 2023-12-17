@@ -8,5 +8,6 @@ export const useTrailers = (gameId: number) => {
   return useQuery({
     queryKey: ["trailers", gameId],
     queryFn: apiClient.getAll,
+    staleTime: 1000 * 60 * 60,
   });
 };
