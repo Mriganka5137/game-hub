@@ -8,13 +8,7 @@ const NavBar = () => {
   return (
     <nav className="flex items-center justify-between flex-1 gap-3 px-2 py-2 ">
       <Link to="/">
-        <img
-          src={logo}
-          height={60}
-          width={60}
-          alt="logo"
-          className=" max-lg:hidden"
-        />
+        <img src={logo} height={60} width={60} alt="logo" className="" />
       </Link>
       <SearchBar />
       <ModeToggle />

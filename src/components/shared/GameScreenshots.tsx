@@ -9,7 +9,6 @@ const GameScreenshots = ({ gameId }: Props) => {
   const { data, isLoading, error } = useScreenshots(gameId);
   if (isLoading) return null;
   if (error) throw error;
-  console.log(data);
   return (
     <div className="grid grid-cols-1 gap-2 mt-5 md:grid-cols-2">
       {data?.results.map((screenshot) => (

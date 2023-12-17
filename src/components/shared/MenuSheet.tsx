@@ -5,7 +5,7 @@ import GenreList from "./GenreList";
 const MenuSheet = () => {
   return (
     <Sheet>
-      <SheetTrigger className=" lg:hidden">
+      <SheetTrigger className="lg:hidden">
         <svg
           xmlns="http://www.w3.org/2000/svg"
           fill="none"
